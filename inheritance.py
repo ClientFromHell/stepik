@@ -1,7 +1,65 @@
-import collections, sys
+import collections, sys, pprint
 
-DICT_CLASS = {}
-CLS_CHECKER = []
+
+# TESTS:
+
+DICT_CLASS = {
+    'A': ['B', 'C', 'D', 'G', 'H'],
+    'B': ['C', 'E', 'G', 'H', 'K', 'L'],
+    'C': ['E', 'D', 'H', 'K', 'L'],
+    'D': ['G', 'H'],
+    'E': ['D', 'F', 'K', 'L'],
+    'F': ['K'],
+    'G': ['F'],
+    'H': ['L'],
+    'K': ['H', 'L'],
+    'L': []
+                  }
+
+CLS_CHECKER = [
+                 ['K', 'D'],
+                 ['D', 'A'],
+                 ['G', 'D'],
+                 ['H', 'A'],
+                 ['E', 'E'],
+                 ['H', 'G'],
+                 ['E', 'L'],
+                 ['D', 'L'],
+                 ['B', 'D'],
+                 ['D', 'G'],
+                 ['D', 'E'],
+                 ['A', 'F'],
+                 ['A', 'C'],
+                 ['K', 'A'],
+                 ['A', 'H'],
+                 ['K', 'D'],
+                 ['H', 'B'],
+                 ['K', 'B'],
+                 ['D', 'L'],
+                 ['G', 'G'],
+                 ['A', 'H'],
+                 ['K', 'L'],
+                 ['G', 'E'],
+                 ['B', 'A'],
+                 ['C', 'K'],
+                 ['K', 'L'],
+                 ['C', 'L'],
+                 ['G', 'C'],
+                 ['D', 'D'],
+                 ['C', 'G'],
+                 ['E', 'A'],
+                 ['F', 'K'],
+                 ['B', 'G'],
+                 ['H', 'L'],
+                 ['L', 'F'],
+                 ['H', 'G'],
+                 ['D', 'A'],
+                 ['H', 'L']
+               ]
+
+
+# DICT_CLASS = {}
+# CLS_CHECKER = []
 inherit = []
 elements = []
 RESULTS = []
@@ -21,11 +79,11 @@ def bfs(visited, graph, node):
     return visited
 
 
-for i in range(int(sys.stdin.readline().strip())):
-    inherit.append([num for num in filter(lambda num: num.isalpha(), sys.stdin.readline().strip())])
+# for i in range(int(sys.stdin.readline().strip())):
+#     inherit.append([num for num in filter(lambda num: num.isalpha(), sys.stdin.readline().strip())])
 #
-for i in range(int(sys.stdin.readline())):
-    CLS_CHECKER.append(sys.stdin.readline().strip().split())
+# for i in range(int(sys.stdin.readline())):
+#     CLS_CHECKER.append(sys.stdin.readline().strip().split())
 
 i_test = []
 
@@ -41,6 +99,7 @@ for i in i_test:
 
 elements = set(elements)
 
+
 for i in CLS_CHECKER:
     res = []
     visited = []
@@ -55,6 +114,5 @@ for i in CLS_CHECKER:
         else:
             RESULTS.append('No')
 
-print(*RESULTS, sep='\n')
-
-
+# print(RESULTS)
+# print(*RESULTS, sep='\n')
