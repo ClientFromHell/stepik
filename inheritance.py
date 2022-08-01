@@ -56,3 +56,5 @@ for i in CLS_CHECKER:
             RESULTS.append('No')
 
 print(*RESULTS, sep='\n')
+
+
