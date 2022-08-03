@@ -1,9 +1,11 @@
+import sys
+
 inherit = []
 CLS_CHECKER = []
 DICT_CLASS = {}
 elements = []
-RESULTS = []
 queue = []
+RESULTS = []
 
 
 def bfs(queue, visited, graph):
