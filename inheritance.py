@@ -1,11 +1,11 @@
 import sys
 
 inherit = []
-CLS_CHECKER = []
-DICT_CLASS = {}
+pointsroute = []
+graph = {}
 elements = []
 queue = []
-RESULTS = []
+l_ofresults = []
 
 
 def bfs(queue, visited, graph):
@@ -24,30 +24,30 @@ for i in range(int(sys.stdin.readline())):
     inherit.append(input().replace(':', '').split())
 
 for i in range(int(sys.stdin.readline())):
-    CLS_CHECKER.append(input().split())
+    pointsroute.append(input().split())
 
 for i in inherit:
     elements += i
     if len(i) == 1:
-        DICT_CLASS[i[0]] = []
+        graph[i[0]] = []
     else:
-        DICT_CLASS[i[0]] = i[1:]
+        graph[i[0]] = i[1:]
 
 elements = set(elements)
 
-for i in CLS_CHECKER:
+for i in pointsroute:
 
     if i[0] == i[-1]:
-        RESULTS.append('Yes')
+        l_ofresults.append('Yes')
     elif i[0] not in elements or i[-1] not in elements:
-        RESULTS.append('No')
+        l_ofresults.append('No')
     else:
         queue.append(i[-1])
         visited = set()
-        res = bfs(queue, visited, DICT_CLASS)
+        res = bfs(queue, visited, graph)
         if i[0] in res:
-            RESULTS.append('Yes')
+            l_ofresults.append('Yes')
         else:
-            RESULTS.append('No')
+            l_ofresults.append('No')
 
-print(*RESULTS, sep='\n')
+print(*l_ofresults, sep='\n')
