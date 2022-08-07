@@ -1,5 +1,3 @@
-import pprint
-
 instance_dict = {}
 
 # instance_dict = {
@@ -14,7 +12,7 @@ instance_dict = {}
 #     'FileNotFoundError': ['OSError'],
 #     'OSError': [],
 #     'ZeroDivisionError': ['ArithmeticError']}
-
+#
 
 # instance_dict = {
 #     'BaseException': [],
@@ -30,6 +28,19 @@ instance_dict = {}
 #     'second': ['base']
 # }
 
+# instance_dict = {
+#     '1': ['2', '3', '4', '5', '6'],
+#     '10': [],
+#     '2': ['7', '3', '5', '10', '9'],
+#     '3': ['5', '9'],
+#     '4': ['10'],
+#     '5': ['9'],
+#     '6': ['4', '10'],
+#     '7': ['8', '3', '5'],
+#     '8': ['3', '9'],
+#     '9': ['6']
+# }
+
 values_for_test = []
 # values_for_test = ['winter', 'is', 'coming', 'omg']
 
@@ -39,6 +50,9 @@ values_for_test = []
 
 # values_for_test = ['base', 'otherBase', 'first', 'second']
 
+# values_for_test = ['5','9','1', '7', '8']
+
+
 temp_list = []
 queue = []
 visited = []
@@ -47,6 +61,8 @@ results = []
 
 
 def dfs(queue, visited, graph):
+
+    """Function makes whole route between required points"""
     while queue:
         for node in queue:
             visited.append(node)
@@ -58,22 +74,28 @@ def dfs(queue, visited, graph):
     return visited
 
 
-def checker_position(val, res):
+def checker_position(val, res, temp_results):
+
+    """Function checks if a parent covers child, if so, adds child to results"""
     if len(res) == 1:
         temp_results.append(val)
     else:
-        for i in res:
-            if i in temp_results and val not in results:
+        for i in res[1:]:
+            if i in temp_results:
                 if val not in results:
                     results.append(val)
+                else:
+                    pass
             else:
-                pass
+                temp_results.append(val)
+
 
 for _ in range(int(input())):
     temp_list += [input().replace(':', '').strip().split()]
 
 for _ in range(int(input())):
     values_for_test += [input().strip()]
+
 
 for i in temp_list:
     if len(i) == 1:
@@ -85,8 +107,6 @@ for i in values_for_test:
     visited = []
     queue.append(i)
     res = dfs(queue, visited, instance_dict)
-    checker_position(i, res)
+    checker_position(i, res, temp_results)
 
-# pprint.pprint(instance_dict)
-# pprint.pprint(values_for_test)
 print(*results, sep='\n')
