@@ -69,6 +69,7 @@ def checker_position(val, res):
             else:
                 pass
 
+
 for _ in range(int(input())):
     temp_list += [input().replace(':', '').strip().split()]
 
