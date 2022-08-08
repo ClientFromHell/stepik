@@ -111,3 +111,4 @@ for i in values_for_test:
     checker_position(i, res, temp_results)
 
 print(*results, sep='\n')
+
