@@ -10,3 +10,4 @@ s = input()
 k = input()
 
 print(finder(s, k))
+
