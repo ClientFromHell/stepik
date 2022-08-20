@@ -36,7 +36,6 @@ for i in inherit:
 elements = set(elements)
 
 for i in pointsroute:
-
     if i[0] == i[-1]:
         l_ofresults.append('Yes')
     elif i[0] not in elements or i[-1] not in elements:
@@ -51,3 +50,4 @@ for i in pointsroute:
             l_ofresults.append('No')
 
 print(*l_ofresults, sep='\n')
+
