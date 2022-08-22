@@ -90,6 +90,7 @@ def checker_position(val, res, temp_results):
                 temp_results.append(val)
 
 
+
 for _ in range(int(input())):
     temp_list += [input().replace(':', '').strip().split()]
 
@@ -110,3 +111,4 @@ for i in values_for_test:
     checker_position(i, res, temp_results)
 
 print(*results, sep='\n')
+
