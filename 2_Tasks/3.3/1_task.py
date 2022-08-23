@@ -1,25 +1,20 @@
 import requests, re
 
-temp_res = []
-
-
-def url_checker(url, url_d):
-    request = requests.get(url)
-    temp2 = re.search(patternURL, request.text)
-    if temp2.group() == url_d:
-        temp_res.append('Yes')
-    else:
-        temp_res.append('No')
-    return temp_res
-
-
+results = []
+urls_on_first_page = []
 patternURL = r'(http*.*html)'
-url_p = input().strip()
-url_d = input().strip()
+# url_p = input().strip()
+# url_d = input().strip()
+url_p = 'https://stepic.org/media/attachments/lesson/24472/sample0.html'
+url_d = 'https://stepic.org/media/attachments/lesson/24472/sample1.html'
+
 req = requests.get(url_p)
-temp = re.findall(patternURL, req.text)
+if req.status_code == 200:
+    temp = re.findall(patternURL, req.text)
+    for link in urls_on_first_page:
+        req = requests.get(link)
+        if req.status_code == 200 and:
 
-for value in temp:
-    result = url_checker(value, url_d)
+print(urls_on_first_page)
 
-print('Yes' if 'Yes' in temp_res else 'No')
+
