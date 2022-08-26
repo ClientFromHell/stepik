@@ -12,7 +12,7 @@ with open('Crimes.csv', 'r') as cfile:
             crime_dictionary[l[5]] = 0
 
 sorted_keys = sorted(crime_dictionary, key=crime_dictionary.get, reverse=True)
-
+print(sorted_keys)
 for i in sorted_keys:
     sorted_dict[i] = crime_dictionary[i]
 
